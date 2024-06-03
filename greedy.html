@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Spering</title>
+  <title>Dog Groomer DP</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -33,7 +33,7 @@
           <a class="navbar-brand" href="index.html">
             <img src="images/logo.png" alt="" />
             <span>
-              Spering
+              Dog Groomer
             </span>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,20 +103,31 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                Best Experinced Freelancer Here
+                Upload File Disini
               </h2>
             </div>
             <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+              <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload and Save</title>
+</head>
+<body>
+    <h1>Upload and Save File</h1>
+    <input type="file" id="fileInput">
+    <button id="saveButton" onclick="saveFile()">Save File</button>
+    <div id="tableContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
             </p>
             <div class="btn-box">
-              <a href="" class="btn-1">
-                Read More
-              </a>
-              <a href="" class="btn-2">
-                Hire
-              </a>
+              <button id="optimizeButton" class="btn-1">
+                optimize
+              </button>
             </div>
+            <div id="countContainer"></div>
+            <div id="timeContainer"></div>
           </div>
         </div>
 
@@ -306,7 +317,8 @@
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="js/custom.js"></script>
+  <script src="js/upload File.js"></script>
+  <script src="js/dp.js"></script>
 
 
 </body>
