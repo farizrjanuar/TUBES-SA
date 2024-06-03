@@ -55,8 +55,7 @@ document.getElementById('optimizeButton').addEventListener('click', function() {
     }));
     
 
-    const optimizedActivities = findOptimalSchedule(activities);
-
+    const optimizedActivities = activitySelection(activities);
     // Generate HTML table for optimized activities
     const table = document.createElement('table');
     table.innerHTML = '<tr><th>No</th><th>Jenis Anjing</th><th>Mulai</th><th>Selesai</th></tr>';
@@ -89,21 +88,28 @@ function calculateEndHour(jenisAnjing, mulaiHour) {
     return mulaiHour + jenisDuration[jenisAnjing];
 }
 
-function findOptimalSchedule(tasks) {
-    // Sort tasks by their end hours
-    tasks.sort((a, b) => a.selesai - b.selesai);
+function activitySelection(arr) {
+    const startTime = performance.now();
 
-    let optimalSchedule = [];
-    let currentHour = 9;  // Start of the workday
-    const endOfWorkday = 18;  // End of the workday
+    // Sorting the activities in increasing order of their finish time
+    arr.sort((a, b) => a.finish - b.finish);
 
-    for (let task of tasks) {
-        if (task.mulai >= currentHour && task.selesai <= endOfWorkday) {
-            optimalSchedule.push(task);
-            currentHour = task.selesai;
+    const selectedActivities = [];
+    let lastFinishTime = 0;
+
+    for (let activity of arr) {
+        if (activity.start >= lastFinishTime) {
+            selectedActivities.push(activity);
+            lastFinishTime = activity.finish;
         }
     }
 
-    return optimalSchedule;
+    const endTime = performance.now();
+    const runningTime = endTime - startTime;
+    
+    // Display running time
+    document.getElementById('timeContainer').innerHTML = `<p>Running time: ${runningTime.toFixed(2)} milliseconds</p>`;
+    
+    return selectedActivities;
 }
 
